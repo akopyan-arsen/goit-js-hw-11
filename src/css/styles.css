@@ -1,25 +1,105 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-@import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
+/* Reset styles */
+* {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+body {
+  padding-top: 36px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  color: currentColor;
+  border: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+input,
+textarea {
+  font-family: inherit;
+}
+form {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+}
+.searchInput {
+  width: 272px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+  color: #2e2f42;
   font-size: 16px;
-  line-height: 24px;
+  font-style: normal;
   font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  padding: 8px 16px;
+}
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+.searchInput::placeholder {
+  color: #808080;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+.searchInput:hover {
+  border: 1px solid #000;
+  outline: none;
+}
+
+.searchInput:active,
+.searchInput:focus {
+  border: 1px solid #4e75ff;
+  outline: none;
+}
+
+.submitBtn {
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: #4e75ff;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
 }
