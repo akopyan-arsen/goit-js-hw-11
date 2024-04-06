@@ -11,6 +11,7 @@
 body {
   padding-top: 36px;
   font-family: 'Montserrat', sans-serif;
+  margin: 0;
 }
 
 h1,
@@ -102,4 +103,61 @@ form {
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.04em;
+}
+
+.submitBtn:hover,
+.submitBtn:focus,
+.submitBtn:active {
+  background: #6c8cff;
+}
+
+.card {
+  width: 360px;
+  height: 200px;
+  border: 1px solid #808080;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 32px auto 36px 154px;
+}
+
+.title {
+  color: #2e2f42;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+}
+
+.text {
+  color: #2e2f42;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2;
+  letter-spacing: 0.04em;
+}
+
+.description {
+  display: flex;
+  gap: 32px;
+  padding: 4px 25px 4px 20px;
+}
+
+.title-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 100%;
+  height: 152px;
+  overflow: hidden;
+  object-fit: cover;
 }

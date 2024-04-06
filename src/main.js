@@ -11,9 +11,17 @@ form.addEventListener('submit', event => {
   if (searchInputValue !== '') {
     list.innerHTML = '';
     searchImages(searchInputValue)
-      .then(data =>
-        list.insertAdjacentHTML('beforeend', createMarkup(data.hits))
-      )
+      .then(data => {
+        console.log(data);
+        if (data.hits.length === 0) {
+          alert(
+            'Sorry, there are no images matching your search query. Please try again!'
+          );
+        } else {
+          list.insertAdjacentHTML('beforeend', createMarkup(data.hits));
+        }
+        form.reset();
+      })
       .catch(error => alert(error));
   }
 });
