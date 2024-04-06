@@ -11,12 +11,6 @@ form.addEventListener('submit', event => {
   if (searchInputValue !== '') {
     list.innerHTML = '';
     searchImages(searchInputValue)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(response.status);
-        }
-        return response.json();
-      })
       .then(data =>
         list.insertAdjacentHTML('beforeend', createMarkup(data.hits))
       )
