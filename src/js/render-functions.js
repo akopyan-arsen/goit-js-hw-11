@@ -2,7 +2,6 @@ export function createMarkup(arr) {
   return arr
     .map(
       ({
-        id,
         webformatURL,
         tags,
         largeImageURL,
@@ -11,7 +10,7 @@ export function createMarkup(arr) {
         comments,
         downloads,
       }) =>
-        `<li class='card' data-id='${id}'><img class='image' src='${webformatURL}' alt='${tags}'>
+        `<li class='card'><a class="gallery-link" href="${largeImageURL}"><img class='image' src='${webformatURL}' alt='${tags}'></a>
         <div class='description'>
         <div class='title-text'><h4 class='title'>Likes</h4><p class='text'>${likes}</p></div>
         <div class='title-text'><h4 class='title'>Views</h4><p class='text'>${views}</p></div>

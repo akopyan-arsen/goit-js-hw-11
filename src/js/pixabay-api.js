@@ -1,3 +1,5 @@
+const loader = document.querySelector('.loader');
+
 export function searchImages(searchInput) {
   const API_KEY = '43234755-a337228de2a5121df872aa78d';
 
@@ -7,8 +9,10 @@ export function searchImages(searchInput) {
     image_type: 'photo',
     orientation: 'horizontal',
     safesearch: true,
+    per_page: 18,
   });
 
+  loader.classList.remove('visually-hidden');
   return fetch(`https://pixabay.com/api/?${params}`).then(response => {
     if (!response.ok) {
       throw new Error(response.status);
