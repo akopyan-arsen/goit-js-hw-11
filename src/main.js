@@ -5,13 +5,13 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 import { searchImages } from './js/pixabay-api.js';
+import { hideLoader } from './js/pixabay-api.js';
 import { createMarkup } from './js/render-functions.js';
 
 const form = document.querySelector('.form');
 const input = document.querySelector('.searchInput');
 const list = document.querySelector('.list');
 const submitBtn = document.querySelector('.submitBtn');
-const loader = document.querySelector('.loader');
 
 submitBtn.disabled = true;
 
@@ -31,7 +31,7 @@ form.addEventListener('submit', event => {
     searchImages(searchInputValue)
       .then(data => {
         if (data.hits.length === 0) {
-          loader.classList.add('visually-hidden');
+          hideLoader();
           return iziToast.error({
             message:
               'Sorry, there are no images matching your search query. Please try again!',
@@ -41,14 +41,23 @@ form.addEventListener('submit', event => {
             timeout: 3000,
           });
         } else {
-          loader.classList.add('visually-hidden');
+          hideLoader();
           list.insertAdjacentHTML('beforeend', createMarkup(data.hits));
           lightbox.refresh();
         }
         form.reset();
         submitBtn.disabled = true;
       })
-      .catch(error => alert(error));
+      .catch(error => {
+        hideLoader();
+        return iziToast.error({
+          message: `${error}`,
+          position: 'topRight',
+          backgroundColor: '#EF4040',
+          messageColor: '#fff',
+          timeout: 3000,
+        });
+      });
   }
 });
 

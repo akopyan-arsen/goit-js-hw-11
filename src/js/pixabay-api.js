@@ -1,5 +1,9 @@
 const loader = document.querySelector('.loader');
 
+export function hideLoader() {
+  loader.classList.add('visually-hidden');
+}
+
 export function searchImages(searchInput) {
   const API_KEY = '43234755-a337228de2a5121df872aa78d';
 
